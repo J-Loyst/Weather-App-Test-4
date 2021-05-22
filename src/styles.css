@@ -11,3 +11,7 @@ h1 {
 li {
   list-style: none;
 }
+#search-city {
+  background-color: #4c1036;
+  color: #71a9f7;
+}
