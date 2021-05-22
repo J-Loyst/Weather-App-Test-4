@@ -1,6 +1,9 @@
 h1 {
   color: #72195a;
 }
+ul {
+  text-decoration: none;
+}
 .btn {
   background-color: #4c1036;
   color: #c6d8ff;
