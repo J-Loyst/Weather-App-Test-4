@@ -6,6 +6,7 @@ h1 {
   margin: 30 auto;
   padding: 20px;
   border: 1px solid #4c1036;
+  border-radius: 20px;
 }
 .btn {
   background-color: #4c1036;
