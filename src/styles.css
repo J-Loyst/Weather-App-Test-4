@@ -8,3 +8,6 @@
 h1 {
   color: #72195a;
 }
+li {
+  list-style: none;
+}
