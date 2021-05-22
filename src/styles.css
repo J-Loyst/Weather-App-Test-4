@@ -8,8 +8,14 @@
 h1 {
   color: #72195a;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
 li {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 #search-city {
   background-color: #4c1036;
