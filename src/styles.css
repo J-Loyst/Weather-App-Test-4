@@ -1,6 +1,12 @@
 h1 {
   color: #72195a;
 }
+.weather-app {
+  max-width: 600px;
+  margin: 30 auto;
+  padding: 20px;
+  border: 1px solid #4c1036;
+}
 .btn {
   background-color: #4c1036;
   color: #c6d8ff;
