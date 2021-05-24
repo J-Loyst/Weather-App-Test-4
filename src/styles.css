@@ -17,7 +17,7 @@
 }
 .weather-temperature strong {
   color: #71a9f7;
-  font-size: 64px;
+  font-size: 32px;
   line-height: 1;
   font-weight: 400;
 }
@@ -25,6 +25,7 @@
   position: relative;
 }
 a {
+  color: #71a9f7;
   text-decoration: none;
 }
 a:hover {
