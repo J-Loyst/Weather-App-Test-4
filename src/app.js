@@ -49,8 +49,36 @@ function displayTemperature(response) {
   descriptionIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = `6fda14409b2eb3e68886c6b8cbdc1307`;
-let city = "Detroit";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = `6fda14409b2eb3e68886c6b8cbdc1307`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Detroit");
+
+function findMe(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "7fe45580c3148481cf4fc668b847a961";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function currentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(findMe);
+}
+
+let locateMeButton = document.querySelector("#locateMeButton");
+locateMeButton.addEventListener("click", currentLocation);
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
