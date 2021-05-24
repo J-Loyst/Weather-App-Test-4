@@ -1,3 +1,27 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `${day}, ${hours}:${minutes}`;
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -7,6 +31,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let highTempElement = document.querySelector("#highTemp");
   let lowTempElement = document.querySelector("#lowTemp");
+  let dateElement = document.querySelector("#date");
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -14,6 +39,7 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = `6fda14409b2eb3e68886c6b8cbdc1307`;
