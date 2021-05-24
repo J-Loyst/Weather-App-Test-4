@@ -7,6 +7,14 @@
   border: 1px solid #4c1036;
   border-radius: 20px;
 }
+.overview {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+}
 h1 {
   color: #72195a;
 }
