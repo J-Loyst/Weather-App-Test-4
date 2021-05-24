@@ -78,6 +78,7 @@ function currentLocation(event) {
 function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+
   celciusLink.classList.remove("active");
   farenheitLink.classList.add("active");
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
@@ -101,7 +102,7 @@ locateMeButton.addEventListener("click", currentLocation);
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemperature);
 
-let celciusLink = document.querySelector("#celcius-Link");
+let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Detroit");
