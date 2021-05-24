@@ -15,6 +15,9 @@
   height: 64px;
   width: 64px;
 }
+.weather-temperature strong {
+  color: #71a9f7;
+}
 h1 {
   color: #72195a;
 }
@@ -30,4 +33,5 @@ li {
 #search-city {
   background-color: #4c1036;
   color: #71a9f7;
+  border: #71a9f7;
 }
