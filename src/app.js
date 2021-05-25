@@ -50,7 +50,7 @@ function displayTemperature(response) {
   celciusTemperature = response.data.main.temp;
   windSpeed = response.data.wind.speed;
   highTemp = response.data.main.temp_max;
-  lowTemp = resmponse.data.main.temp_min;
+  lowTemp = response.data.main.temp_min;
 }
 
 function search(city) {
