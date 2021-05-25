@@ -34,8 +34,6 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let descriptionIcon = document.querySelector("#icon");
 
-  celciusTemperature = response.data.main.temp;
-
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -49,6 +47,7 @@ function displayTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   descriptionIcon.setAttribute("alt", response.data.weather[0].description);
+  celciusTemperature = response.data.main.temp;
 }
 
 function search(city) {
