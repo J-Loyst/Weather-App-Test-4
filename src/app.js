@@ -79,11 +79,14 @@ function currentLocation(event) {
 function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
+  let windSpeedElement = document.querySelector("#wind");
 
   celciusLink.classList.remove("active");
   farenheitLink.classList.add("active");
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
+  let imperialWindSpeed = windSpeed;
+  windSpeedElement.innerHTML = Math.round(imperialWindSpeed * 0.621371) + "mph";
 }
 
 function displayCelciusTemperature(event) {
@@ -93,6 +96,7 @@ function displayCelciusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celciusTemperature);
 }
 let celciusTemperature = null;
+let windSpeed = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
