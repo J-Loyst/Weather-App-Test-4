@@ -97,6 +97,8 @@ function displayCelciusTemperature(event) {
   celciusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
+  let imperialWindSpeed = windSpeed;
+
   windSpeedElement.innerHTML = Math.round(imperialWindSpeed) + "km/h";
 }
 let celciusTemperature = null;
