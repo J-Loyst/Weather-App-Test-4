@@ -34,6 +34,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let descriptionIcon = document.querySelector("#icon");
 
+  celciusTemperature = response.data.main.temp;
+
   windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].description;
