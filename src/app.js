@@ -48,6 +48,9 @@ function displayTemperature(response) {
   );
   descriptionIcon.setAttribute("alt", response.data.weather[0].description);
   celciusTemperature = response.data.main.temp;
+  windSpeed = response.data.wind.speed;
+  highTemp = response.data.main.temp_max;
+  lowTemp = resmponse.data.main.temp_min;
 }
 
 function search(city) {
@@ -80,29 +83,50 @@ function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
   let windSpeedElement = document.querySelector("#wind");
+  let highTempElement = document.querySelector("#highTemp");
+  let lowTempElement = document.querySelector("#lowTemp");
 
   celciusLink.classList.remove("active");
   farenheitLink.classList.add("active");
+
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
+
   let imperialWindSpeed = windSpeed;
   windSpeedElement.innerHTML =
     Math.round(imperialWindSpeed * 0.621371) + " mph";
+
+  let imperialHighTemp = (highTemp * 9) / 5 + 32;
+  highTempElement.innerHTML = Math.round(imperialHighTemp) + "°";
+
+  let imperialLowTemp = (lowTemp * 9) / 5 + 32;
+  lowTempElement.innerHTML = Math.round(imperialLowTemp) + "°";
 }
 
 function displayCelciusTemperature(event) {
+  event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
   let windSpeedElement = document.queryCommandEnabled("#wind");
+  let highTempElement = document.querySelector("#highTemp");
+  let lowTempElement = document.querySelector("#lowTemp");
 
   celciusLink.classList.add("active");
   farenheitLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-  let imperialWindSpeed = windSpeed;
 
-  windSpeedElement.innerHTML = Math.round(imperialWindSpeed) + "km/h";
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+
+  let metricWindSpeed = windSpeed;
+  windSpeedElement.innerHTML = Math.round(metricWindSpeed) + "km/h";
+
+  let metricHighTemp = highTemp;
+  highTempElement.innerHTML = Math.round(metricHighTemp) + "°";
+  let metricLowTemp = lowTemp;
+  lowTempElement.innerHTML = Math.round(metricLowTemp) + "°";
 }
 let celciusTemperature = null;
 let windSpeed = null;
+let highTemp = null;
+let lowTemp = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
