@@ -86,14 +86,18 @@ function displayFarenheitTemperature(event) {
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
   let imperialWindSpeed = windSpeed;
-  windSpeedElement.innerHTML = Math.round(imperialWindSpeed * 0.621371) + "mph";
+  windSpeedElement.innerHTML =
+    Math.round(imperialWindSpeed * 0.621371) + " mph";
 }
 
 function displayCelciusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
+  let windSpeedElement = document.queryCommandEnabled("#wind");
+
   celciusLink.classList.add("active");
   farenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celciusTemperature);
+  windSpeedElement.innerHTML = Math.round(imperialWindSpeed) + "km/h";
 }
 let celciusTemperature = null;
 let windSpeed = null;
