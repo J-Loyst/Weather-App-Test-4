@@ -27,6 +27,24 @@
 .weather-temperautre .units {
   position: relative;
 }
+.weather-forecast {
+  margin: 20px;
+  text-align: center;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  color: #72195a;
+  padding: 20px;
+  text-align: center;
+}
+.weather-forecast-temperature-max {
+  color: #4c1036;
+  text-align: center;
+}
+.weather-forecast-temperature-min {
+  color: #71a9f7;
+  text-align: center;
+}
 a {
   color: #71a9f7;
   text-decoration: none;
