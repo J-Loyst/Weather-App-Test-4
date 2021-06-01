@@ -69,7 +69,7 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = `6fda14409b2eb3e68886c6b8cbdc1307`;
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiURL).then(displayForecast);
 }
@@ -85,13 +85,13 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let descriptionIcon = document.querySelector("#icon");
 
-  windElement.innerHTML = Math.round(response.data.wind.speed) + " km/h";
+  windElement.innerHTML = Math.round(response.data.wind.speed) + " m/h";
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].description;
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  highTempElement.innerHTML = Math.round(response.data.main.temp_max);
-  lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  highTempElement.innerHTML = Math.round(response.data.main.temp_max) + "°";
+  lowTempElement.innerHTML = Math.round(response.data.main.temp_min) + "°";
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   descriptionIcon.setAttribute(
     "src",
@@ -108,7 +108,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = `6fda14409b2eb3e68886c6b8cbdc1307`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -123,7 +123,7 @@ function findMe(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "7fe45580c3148481cf4fc668b847a961";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -132,66 +132,10 @@ function currentLocation(event) {
   navigator.geolocation.getCurrentPosition(findMe);
 }
 
-function displayFarenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let windSpeedElement = document.querySelector("#wind");
-  let highTempElement = document.querySelector("#highTemp");
-  let lowTempElement = document.querySelector("#lowTemp");
-
-  celciusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-
-  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
-
-  let imperialWindSpeed = windSpeed;
-  windSpeedElement.innerHTML =
-    Math.round(imperialWindSpeed * 0.621371) + " mph";
-
-  let imperialHighTemp = (highTemp * 9) / 5 + 32;
-  highTempElement.innerHTML = Math.round(imperialHighTemp) + "°";
-
-  let imperialLowTemp = (lowTemp * 9) / 5 + 32;
-  lowTempElement.innerHTML = Math.round(imperialLowTemp) + "°";
-}
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let windSpeedElement = document.queryCommandEnabled("#wind");
-  let highTempElement = document.querySelector("#highTemp");
-  let lowTempElement = document.querySelector("#lowTemp");
-
-  celciusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
-
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-
-  let metricWindSpeed = windSpeed;
-  windSpeedElement.innerHTML = Math.round(metricWindSpeed) + "km/h";
-
-  let metricHighTemp = highTemp;
-  highTempElement.innerHTML = Math.round(metricHighTemp) + "°";
-
-  let metricLowTemp = lowTemp;
-  lowTempElement.innerHTML = Math.round(metricLowTemp) + "°";
-}
-let celciusTemperature = null;
-let windSpeed = null;
-let highTemp = null;
-let lowTemp = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let locateMeButton = document.querySelector("#locateMeButton");
 locateMeButton.addEventListener("click", currentLocation);
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemperature);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Detroit");
