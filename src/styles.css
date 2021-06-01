@@ -1,11 +1,31 @@
+body {
+  background: white;
+}
 .weather-app-wrapper {
   background: white;
   margin: 0 auto;
   max-width: 600px;
   margin: 30 auto;
-  border: 1px solid #4c1036;
+}
+.with-border-image {
+  border-style: solid;
+  border-width: 5px;
+  border-image: linear-gradient(
+      45deg,
+      #72195a,
+      #614597,
+      #006fc5,
+      #0094d9,
+      #00b4ce,
+      #00d0ad,
+      #00b4ce,
+      #0094d9,
+      #006fc5,
+      #614597,
+      #72195a
+    )
+    1;
   border-radius: 30px;
-  box-shadow: 20px;
 }
 .weather-app {
   padding: 20px;
