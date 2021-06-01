@@ -45,6 +45,7 @@
   color: #71a9f7;
   text-align: center;
 }
+
 a {
   color: #71a9f7;
   text-decoration: none;
@@ -66,6 +67,10 @@ li {
 }
 li::first-letter {
   text-transform: capitalize;
+}
+small {
+  display: block;
+  text-align: center;
 }
 #search-city {
   background-color: #4c1036;
