@@ -39,7 +39,7 @@ body {
   width: 64px;
 }
 .weather-temperature strong {
-  color: #71a9f7;
+  color: #614597;
   font-size: 32px;
   line-height: 1;
   font-weight: 400;
@@ -58,11 +58,11 @@ body {
   text-align: center;
 }
 .weather-forecast-temperature-max {
-  color: #4c1036;
+  color: #614597;
   text-align: center;
 }
 .weather-forecast-temperature-min {
-  color: #71a9f7;
+  color: #00d0ad;
   text-align: center;
 }
 
