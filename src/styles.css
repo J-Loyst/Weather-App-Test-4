@@ -1,6 +1,9 @@
 body {
   background: gainsboro;
 }
+.container {
+  margin-top: 30px;
+}
 .weather-app-wrapper {
   background: white;
   margin: 0 auto;
